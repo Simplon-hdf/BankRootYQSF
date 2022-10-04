@@ -45,6 +45,9 @@ class Client
     #[ORM\OneToOne(mappedBy: 'id_client', cascade: ['persist', 'remove'])]
     private ?Account $account = null;
 
+    #[ORM\ManyToMany(targetEntity: Account::class, inversedBy: 'clients')]
+    private Collection $operation;
+
     // #[ORM\ManyToMany(targetEntity: Operation::class, mappedBy: 'id_client')]
     // private Collection $operations;
 
@@ -52,6 +55,7 @@ class Client
     {
         $this->credits = new ArrayCollection();
         $this->operations = new ArrayCollection();
+        $this->operation = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -216,4 +220,28 @@ class Client
 
     //     return $this;
     // }
+
+    /**
+     * @return Collection<int, Account>
+     */
+    public function getOperation(): Collection
+    {
+        return $this->operation;
+    }
+
+    public function addOperation(Account $operation): self
+    {
+        if (!$this->operation->contains($operation)) {
+            $this->operation->add($operation);
+        }
+
+        return $this;
+    }
+
+    public function removeOperation(Account $operation): self
+    {
+        $this->operation->removeElement($operation);
+
+        return $this;
+    }
 }

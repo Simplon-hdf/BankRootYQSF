@@ -34,6 +34,15 @@ class Account
     #[ORM\JoinColumn(nullable: false)]
     private ?Client $id_client = null;
 
+    #[ORM\ManyToMany(targetEntity: Client::class, mappedBy: 'operation')]
+    private Collection $clients;
+
+    #[ORM\ManyToMany(targetEntity: self::class, inversedBy: 'accounts')]
+    private Collection $transaction;
+
+    #[ORM\ManyToMany(targetEntity: self::class, mappedBy: 'transaction')]
+    private Collection $accounts;
+
     //#[ORM\ManyToMany(targetEntity: Operation::class, mappedBy: 'id_account')]
     //private Collection $operations;
 
@@ -44,6 +53,9 @@ class Account
     {
         $this->operations = new ArrayCollection();
         $this->transactions = new ArrayCollection();
+        $this->clients = new ArrayCollection();
+        $this->transaction = new ArrayCollection();
+        $this->accounts = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -164,4 +176,82 @@ class Account
 
     //     return $this;
     // }
+
+    /**
+     * @return Collection<int, Client>
+     */
+    public function getClients(): Collection
+    {
+        return $this->clients;
+    }
+
+    public function addClient(Client $client): self
+    {
+        if (!$this->clients->contains($client)) {
+            $this->clients->add($client);
+            $client->addOperation($this);
+        }
+
+        return $this;
+    }
+
+    public function removeClient(Client $client): self
+    {
+        if ($this->clients->removeElement($client)) {
+            $client->removeOperation($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getTransaction(): Collection
+    {
+        return $this->transaction;
+    }
+
+    public function addTransaction(self $transaction): self
+    {
+        if (!$this->transaction->contains($transaction)) {
+            $this->transaction->add($transaction);
+        }
+
+        return $this;
+    }
+
+    public function removeTransaction(self $transaction): self
+    {
+        $this->transaction->removeElement($transaction);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, self>
+     */
+    public function getAccounts(): Collection
+    {
+        return $this->accounts;
+    }
+
+    public function addAccount(self $account): self
+    {
+        if (!$this->accounts->contains($account)) {
+            $this->accounts->add($account);
+            $account->addTransaction($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAccount(self $account): self
+    {
+        if ($this->accounts->removeElement($account)) {
+            $account->removeTransaction($this);
+        }
+
+        return $this;
+    }
 }
