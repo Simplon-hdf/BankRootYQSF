@@ -45,8 +45,8 @@ class Client
     #[ORM\OneToOne(mappedBy: 'id_client', cascade: ['persist', 'remove'])]
     private ?Account $account = null;
 
-    #[ORM\ManyToMany(targetEntity: Operation::class, mappedBy: 'id_client')]
-    private Collection $operations;
+    // #[ORM\ManyToMany(targetEntity: Operation::class, mappedBy: 'id_client')]
+    // private Collection $operations;
 
     public function __construct()
     {
@@ -190,30 +190,30 @@ class Client
         return $this;
     }
 
-    /**
-     * @return Collection<int, Operation>
-     */
-    public function getOperations(): Collection
-    {
-        return $this->operations;
-    }
+    // /**
+    //  * @return Collection<int, Operation>
+    //  */
+    // public function getOperations(): Collection
+    // {
+    //     return $this->operations;
+    // }
 
-    public function addOperation(Operation $operation): self
-    {
-        if (!$this->operations->contains($operation)) {
-            $this->operations->add($operation);
-            $operation->addIdClient($this);
-        }
+    // public function addOperation(Operation $operation): self
+    // {
+    //     if (!$this->operations->contains($operation)) {
+    //         $this->operations->add($operation);
+    //         $operation->addIdClient($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeOperation(Operation $operation): self
-    {
-        if ($this->operations->removeElement($operation)) {
-            $operation->removeIdClient($this);
-        }
+    // public function removeOperation(Operation $operation): self
+    // {
+    //     if ($this->operations->removeElement($operation)) {
+    //         $operation->removeIdClient($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }

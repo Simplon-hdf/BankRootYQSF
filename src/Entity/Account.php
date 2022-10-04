@@ -34,11 +34,11 @@ class Account
     #[ORM\JoinColumn(nullable: false)]
     private ?Client $id_client = null;
 
-    #[ORM\ManyToMany(targetEntity: Operation::class, mappedBy: 'id_account')]
-    private Collection $operations;
+    //#[ORM\ManyToMany(targetEntity: Operation::class, mappedBy: 'id_account')]
+    //private Collection $operations;
 
-    #[ORM\ManyToMany(targetEntity: Transaction::class, mappedBy: 'id_account_crediteur')]
-    private Collection $transactions;
+    // #[ORM\ManyToMany(targetEntity: Transaction::class, mappedBy: 'id_account_crediteur')]
+    // private Collection $transactions;
 
     public function __construct()
     {
@@ -111,57 +111,57 @@ class Account
         return $this;
     }
 
-    /**
-     * @return Collection<int, Operation>
-     */
-    public function getOperations(): Collection
-    {
-        return $this->operations;
-    }
+    // /**
+    //  * @return Collection<int, Operation>
+    //  */
+    // public function getOperations(): Collection
+    // {
+    //     return $this->operations;
+    // }
 
-    public function addOperation(Operation $operation): self
-    {
-        if (!$this->operations->contains($operation)) {
-            $this->operations->add($operation);
-            $operation->addIdAccount($this);
-        }
+    // public function addOperation(Operation $operation): self
+    // {
+    //     if (!$this->operations->contains($operation)) {
+    //         $this->operations->add($operation);
+    //         $operation->addIdAccount($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeOperation(Operation $operation): self
-    {
-        if ($this->operations->removeElement($operation)) {
-            $operation->removeIdAccount($this);
-        }
+    // public function removeOperation(Operation $operation): self
+    // {
+    //     if ($this->operations->removeElement($operation)) {
+    //         $operation->removeIdAccount($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    /**
-     * @return Collection<int, Transaction>
-     */
-    public function getTransactions(): Collection
-    {
-        return $this->transactions;
-    }
+    // /**
+    //  * @return Collection<int, Transaction>
+    //  */
+    // public function getTransactions(): Collection
+    // {
+    //     return $this->transactions;
+    // }
 
-    public function addTransaction(Transaction $transaction): self
-    {
-        if (!$this->transactions->contains($transaction)) {
-            $this->transactions->add($transaction);
-            $transaction->addIdAccountCrediteur($this);
-        }
+    // public function addTransaction(Transaction $transaction): self
+    // {
+    //     if (!$this->transactions->contains($transaction)) {
+    //         $this->transactions->add($transaction);
+    //         $transaction->addIdAccountCrediteur($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    public function removeTransaction(Transaction $transaction): self
-    {
-        if ($this->transactions->removeElement($transaction)) {
-            $transaction->removeIdAccountCrediteur($this);
-        }
+    // public function removeTransaction(Transaction $transaction): self
+    // {
+    //     if ($this->transactions->removeElement($transaction)) {
+    //         $transaction->removeIdAccountCrediteur($this);
+    //     }
 
-        return $this;
-    }
+    //     return $this;
+    // }
 }
