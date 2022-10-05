@@ -8,8 +8,8 @@
             "ref": "0330386d716d3eecc52ee5ac66976e733eb8f961"
         },
         "files": [
-            "config/routes/api_platform.yaml",
-            "src/ApiResource/.gitignore"
+            "./config/routes/api_platform.yaml",
+            "./src/ApiResource/.gitignore"
         ]
     },
     "doctrine/annotations": {
@@ -30,9 +30,9 @@
             "ref": "da713d006953b90d1c085c1be480ecdd6c4a95e0"
         },
         "files": [
-            "config/packages/doctrine.yaml",
-            "src/Entity/.gitignore",
-            "src/Repository/.gitignore"
+            "./config/packages/doctrine.yaml",
+            "./src/Entity/.gitignore",
+            "./src/Repository/.gitignore"
         ]
     },
     "doctrine/doctrine-migrations-bundle": {
@@ -44,8 +44,8 @@
             "ref": "1d01ec03c6ecbd67c3375c5478c9a423ae5d6a33"
         },
         "files": [
-            "config/packages/doctrine_migrations.yaml",
-            "migrations/.gitignore"
+            "./config/packages/doctrine_migrations.yaml",
+            "./migrations/.gitignore"
         ]
     },
     "nelmio/cors-bundle": {
@@ -57,7 +57,7 @@
             "ref": "6bea22e6c564fba3a1391615cada1437d0bde39c"
         },
         "files": [
-            "config/packages/nelmio_cors.yaml"
+            "./config/packages/nelmio_cors.yaml"
         ]
     },
     "symfony/console": {
@@ -69,7 +69,7 @@
             "ref": "da0c8be8157600ad34f10ff0c9cc91232522e047"
         },
         "files": [
-            "bin/console"
+            "./bin/console"
         ]
     },
     "symfony/flex": {
@@ -81,7 +81,7 @@
             "ref": "146251ae39e06a95be0fe3d13c807bcf3938b172"
         },
         "files": [
-            ".env"
+            "./.env"
         ]
     },
     "symfony/framework-bundle": {
@@ -93,18 +93,18 @@
             "ref": "3cd216a4d007b78d8554d44a5b1c0a446dab24fb"
         },
         "files": [
-            "config/packages/cache.yaml",
-            "config/packages/framework.yaml",
-            "config/preload.php",
-            "config/routes/framework.yaml",
-            "config/services.yaml",
-            "public/index.php",
-            "src/Controller/.gitignore",
-            "src/Kernel.php"
+            "./config/packages/cache.yaml",
+            "./config/packages/framework.yaml",
+            "./config/preload.php",
+            "./config/routes/framework.yaml",
+            "./config/services.yaml",
+            "./public/index.php",
+            "./src/Controller/.gitignore",
+            "./src/Kernel.php"
         ]
     },
     "symfony/maker-bundle": {
-        "version": "1.46",
+        "version": "1.47",
         "recipe": {
             "repo": "github.com/symfony/recipes",
             "branch": "main",
@@ -121,8 +121,8 @@
             "ref": "a44010c0d06989bd4f154aa07d2542d47caf5b83"
         },
         "files": [
-            "config/packages/routing.yaml",
-            "config/routes.yaml"
+            "./config/packages/routing.yaml",
+            "./config/routes.yaml"
         ]
     },
     "symfony/security-bundle": {
@@ -134,7 +134,7 @@
             "ref": "8a5b112826f7d3d5b07027f93786ae11a1c7de48"
         },
         "files": [
-            "config/packages/security.yaml"
+            "./config/packages/security.yaml"
         ]
     },
     "symfony/twig-bundle": {
@@ -146,8 +146,8 @@
             "ref": "bb2178c57eee79e6be0b297aa96fc0c0def81387"
         },
         "files": [
-            "config/packages/twig.yaml",
-            "templates/base.html.twig"
+            "./config/packages/twig.yaml",
+            "./templates/base.html.twig"
         ]
     },
     "symfony/validator": {
@@ -159,7 +159,7 @@
             "ref": "c32cfd98f714894c4f128bb99aa2530c1227603c"
         },
         "files": [
-            "config/packages/validator.yaml"
+            "./config/packages/validator.yaml"
         ]
     }
 }
