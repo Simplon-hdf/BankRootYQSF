@@ -31,7 +31,6 @@ La mission de votre équipe est de concevoir une application qui permet à votre
 
 **CLIENT**
 
-- À un numéro unique
 - Lecture de son compte
 - Peut demander la suppression de son compte
 - Peut faire un virement vers un autre compte
@@ -56,23 +55,15 @@ La mission de votre équipe est de concevoir une application qui permet à votre
 
 | Code mnémonique          | Désignation                                           | Type | Taille | Remarque   |
 | ------------------------ | ----------------------------------------------------- | ---- | ------ | ---------- |
-| first_name_admin         | Prénom de l'administrateur                            | A    | 50     |            |
-| last_name_admin          | nom de l'administrateur                               | A    | 50     |            |
-| address_admin            | adresse de l'administrateur                           | AN   | 100    |            |
-| city_admin               | ville de l'administrateur                             | A    | 50     |            |
-| postale_code_admin       | code postal de l'administrateur                       | AN   | 20     |            |
-| mail_admin               | mail de l'administrateur                              | AN   | 100    |            |
-| phone_number_admin       | téléphone de l'administrateur                         | N    |        |            |
-| password_admin           | mot de passe de l'administrateur                      | AN   | 255    |            |
-| unique_number_client     | numero unique du client                               | N    |        |            |
-| first_name_client        | Prénom du client                                      | A    | 50     |            |
-| last_name_client         | nom du client                                         | A    | 50     |            |
-| address_client           | adresse du client                                     | AN   | 100    |            |
-| city_client              | ville du client                                       | A    | 50     |            |
-| postale_code_client      | code postal du client                                 | AN   | 20     |            |
-| mail_client              | mail du client                                        | AN   | 100    |            |
-| phone_number_client      | téléphone du client                                   | N    |        |            |
-| password_client          | mot de passe du client                                | AN   | 255    |            |
+| unique_number_users      | numero unique du users                                | N    |        |            |
+| first_name_users         | Prénom du users                                       | A    | 50     |            |
+| last_name_users          | nom du users                                          | A    | 50     |            |
+| address_users            | adresse du users                                      | AN   | 100    |            |
+| city_users               | ville du users                                        | A    | 50     |            |
+| postale_code_users       | code postal du users                                  | AN   | 20     |            |
+| mail_users               | mail du users                                         | AN   | 100    |            |
+| phone_number_users       | téléphone du users                                    | N    |        |            |
+| password_users           | mot de passe du users                                 | AN   | 255    |            |
 | balance_credit           | la somme du crédit demandé                            | N    |        |            |
 | administrator_validation | booléen pour savoir si la demande est accepté ou non  | Bool |        |            |
 | balance_account          | montant du solde du compte                            | N    |        |            |
@@ -102,84 +93,6 @@ La mission de votre équipe est de concevoir une application qui permet à votre
 ## MPD
 
 [![MPD.jpg](./database/MPD.jpg)](./database/MPD.jpg)
-
-```sql
-CREATE TABLE admin(
-   id_admin COUNTER,
-   first_name VARCHAR(50) NOT NULL,
-   last_name VARCHAR(50) NOT NULL,
-   address VARCHAR(100) NOT NULL,
-   city VARCHAR(50) NOT NULL,
-   postal_code VARCHAR(20) NOT NULL,
-   mail VARCHAR(100) NOT NULL,
-   phone_number INT NOT NULL,
-   password VARCHAR(255) NOT NULL,
-   PRIMARY KEY(id_admin)
-);
-
-CREATE TABLE client(
-   id_client COUNTER,
-   unique_number INT NOT NULL,
-   first_name VARCHAR(50) NOT NULL,
-   last_name VARCHAR(50) NOT NULL,
-   address VARCHAR(100) NOT NULL,
-   city VARCHAR(50) NOT NULL,
-   postal_code VARCHAR(20) NOT NULL,
-   mail VARCHAR(100) NOT NULL,
-   phone_number INT NOT NULL,
-   password VARCHAR(255) NOT NULL,
-   id_admin INT NOT NULL,
-   PRIMARY KEY(id_client),
-   UNIQUE(unique_number),
-   FOREIGN KEY(id_admin) REFERENCES admin(id_admin)
-);
-
-CREATE TABLE account(
-   id_account COUNTER,
-   unique_number INT NOT NULL,
-   balance DECIMAL(15,2),
-   status INT,
-   iban VARCHAR(34),
-   id_client INT NOT NULL,
-   PRIMARY KEY(id_account),
-   UNIQUE(id_client),
-   UNIQUE(unique_number),
-   FOREIGN KEY(id_client) REFERENCES client(id_client)
-);
-
-CREATE TABLE credit(
-   id_credit COUNTER,
-   balance DECIMAL(15,2) NOT NULL,
-   administrator_validation LOGICAL,
-   id_admin INT NOT NULL,
-   id_client INT NOT NULL,
-   PRIMARY KEY(id_credit),
-   FOREIGN KEY(id_admin) REFERENCES admin(id_admin),
-   FOREIGN KEY(id_client) REFERENCES client(id_client)
-);
-
-CREATE TABLE operation(
-   id_client INT,
-   id_account INT,
-   amount DECIMAL(15,2) NOT NULL,
-   date_operation DATE NOT NULL,
-   type VARCHAR(50) NOT NULL,
-   PRIMARY KEY(id_client, id_account),
-   FOREIGN KEY(id_client) REFERENCES client(id_client),
-   FOREIGN KEY(id_account) REFERENCES account(id_account)
-);
-
-CREATE TABLE transaction(
-   id_account_crediteur INT,
-   id_account_debiteur INT,
-   amount DECIMAL(15,2) NOT NULL,
-   label VARCHAR(50) NOT NULL,
-   date_transaction DATE NOT NULL,
-   PRIMARY KEY(id_account_crediteur, id_account_debiteur),
-   FOREIGN KEY(id_account_crediteur) REFERENCES account(id_account),
-   FOREIGN KEY(id_account_debiteur) REFERENCES account(id_account)
-);
-```
 
 ---
 
