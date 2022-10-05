@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20221005102704 extends AbstractMigration
+final class Version20221005125300 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -27,6 +27,6 @@ final class Version20221005102704 extends AbstractMigration
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SCHEMA public');
-        $this->addSql('ALTER TABLE "user" ALTER roles TYPE JSON');
+        $this->addSql('ALTER TABLE "user" ALTER roles TYPE VARCHAR(255)');
     }
 }
