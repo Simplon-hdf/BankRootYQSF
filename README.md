@@ -15,6 +15,7 @@ La mission de votre équipe est de concevoir une application qui permet à votre
   - [Instalation](#instalation)
   - [Règles métier](#règles-métier)
   - [Dictionnaire de données](#dictionnaire-de-données)
+  - [| label_transaction        | motif du virement                                     | AN   | 50](#-label_transaction---------motif-du-virement--------------------------------------an----50)
   - [MCD](#mcd)
   - [MLD](#mld)
   - [MPD](#mpd)
@@ -56,7 +57,7 @@ La mission de votre équipe est de concevoir une application qui permet à votre
 
 | Code mnémonique          | Désignation                                           | Type | Taille | Remarque   |
 | ------------------------ | ----------------------------------------------------- | ---- | ------ | ---------- |
-| unique_number_users      | numero unique du users                                | N    |        |            |
+| unique_number_users      | numéro unique du users                                | N    |        |            |
 | first_name_users         | Prénom du users                                       | A    | 50     |            |
 | last_name_users          | nom du users                                          | A    | 50     |            |
 | address_users            | adresse du users                                      | AN   | 100    |            |
@@ -66,17 +67,16 @@ La mission de votre équipe est de concevoir une application qui permet à votre
 | phone_number_users       | téléphone du users                                    | AN   | 12     |            |
 | password_users           | mot de passe du users                                 | AN   | 255    |            |
 | balance_credit           | la somme du crédit demandé                            | N    |        |            |
-| administrator_validation | booléen pour savoir si la demande est accepté ou non  | Bool |        |            |
+| administrator_validation | booléen pour savoir si la demande est acceptée ou non | Bool |        |            |
 | balance_account          | montant du solde du compte                            | N    |        |            |
-| unique_number_account    | numero unqiue                                         | N    |        |            |
-| status_account           | status du coumpte, 1:ouvert, 2:en attente, 3:suprimer | N    |        |            |
-| iban_account             | numero unique de banque                               | AN   | 34     |            |
-| amount_operation         | montant de l'operation                                | N    |        |            |
-| date_operation           | date de l'operation                                   | date |        | AAAA:MM:JJ |
+| unique_number_account    | numéro unique                                         | N    |        |            |
+| status_account           | statue du compte, 1:ouvert, 2:en attente, 3:supprimer | N    |        |            |
+| iban_account             | numéro unique de banque                               | AN   | 34     |            |
+| amount_operation         | montant de l'opération                                | N    |        |            |
+| date_operation           | date de l'opération                                   | date |        | AAAA:MM:JJ |
 | amount_transaction       | montant de la transaction                             | N    |        |            |
 | date_transaction         | date de la transaction                                | date |        | AAAA:MM:JJ |
-| label_transaction        | motif du virement                                     | AN   | 50     |            |
-
+| label_transaction        | motif du virement                                     | AN   | 50     
 ---
 
 ## MCD
