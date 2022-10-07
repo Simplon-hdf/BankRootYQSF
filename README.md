@@ -15,7 +15,6 @@ La mission de votre équipe est de concevoir une application qui permet à votre
   - [Instalation](#instalation)
   - [Règles métier](#règles-métier)
   - [Dictionnaire de données](#dictionnaire-de-données)
-  - [| label_transaction        | motif du virement                                     | AN   | 50](#-label_transaction---------motif-du-virement--------------------------------------an----50)
   - [MCD](#mcd)
   - [MLD](#mld)
   - [MPD](#mpd)
