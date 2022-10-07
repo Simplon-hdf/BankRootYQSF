@@ -22,6 +22,7 @@ La mission de votre équipe est de concevoir une application qui permet à votre
     - [Diagrame Usecase](#diagrame-usecase)
     - [Diagrame de classe](#diagrame-de-classe)
     - [Diagrame séquentiel](#diagrame-séquentiel)
+  - [Stratégie de sécurité](#stratégie-de-sécurité)
 
 ## Instalation
 
@@ -62,7 +63,7 @@ La mission de votre équipe est de concevoir une application qui permet à votre
 | city_users               | ville du users                                        | A    | 50     |            |
 | postale_code_users       | code postal du users                                  | AN   | 20     |            |
 | mail_users               | mail du users                                         | AN   | 100    |            |
-| phone_number_users       | téléphone du users                                    | N    |        |            |
+| phone_number_users       | téléphone du users                                    | AN   | 12     |            |
 | password_users           | mot de passe du users                                 | AN   | 255    |            |
 | balance_credit           | la somme du crédit demandé                            | N    |        |            |
 | administrator_validation | booléen pour savoir si la demande est accepté ou non  | Bool |        |            |
@@ -100,14 +101,18 @@ La mission de votre équipe est de concevoir une application qui permet à votre
 
 ### Diagrame Usecase
 
-[![]()]()
+[![UseCase.png](./UML/UseCase.png)](./UML/UseCase.png)
 
 ### Diagrame de classe
 
-[![]()]()
+[![umlbank.png](./UML/umlbank.png)](./UML/umlbank.png)
 
 ### Diagrame séquentiel
 
-[![]()]()
+[![diagrame_de_sequence.png](./UML/diagramme_de_sequence.png)](./UML/diagramme_de_sequence.png)
+
+## Stratégie de sécurité
+
+[Lien de la stratégie de sécurité.](./security/security.md)
 
 ---
