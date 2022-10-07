@@ -13,7 +13,7 @@ Comme expliquer dans le choix de la technologie, ce framework mets places tout u
 
 ## L’entête sécurisé (TLS / HTTP / HTTPS / CORS)
 
-Nous avons mis en place la sécurité de l'entête pour le rendre HTTPS. Grâce au différend bundle de symphonie la gestion de sécurisation au niveau de la connexion et l'accès au page en fonction du rôle ce fait. Cela évitera qu'un utilisateur puisse accéder à une page administrateur.
+Nous avons mis en place la sécurité de l'entête pour le rendre HTTPS. Grâce au différend bundle de symfony la gestion de sécurisation au niveau de la connexion et l'accès au page en fonction du rôle ce fait. Cela évitera qu'un utilisateur puisse accéder à une page administrateur.
 
 ## Le moindre privilège
 
@@ -25,7 +25,7 @@ Vu qu'on a des données sensibles dans la base de données, une CGU sera écrite
 
 ## Stratégie de sauvegarde
 
-Pour l'enregistrement du mot de passe symphonie va hasch le mot de passe pour sécuriser le mot de passe avec un minimum de 6 caractères. 
+Pour l'enregistrement du mot de passe symfony va hasch le mot de passe pour sécuriser le mot de passe avec un minimum de 6 caractères. 
 
 ## Sécurisation de l'authentification
 
